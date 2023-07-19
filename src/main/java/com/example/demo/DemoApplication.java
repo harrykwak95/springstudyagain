@@ -31,14 +31,15 @@ class Coffee {
 	@Id
 	private String id;
 
+	private String name;
+
 	public Coffee() {
 
 	}
 
 	public void setId(String id) {
-
+		this.id = id;
 	}
-	private String name;
 
 	public Coffee(String id, String name) {
 		this.id = id;
@@ -120,7 +121,7 @@ class RestApiDemoController {
 	}*/
 
 	@PostMapping
-	Coffee postCoffee(@PathVariable Coffee coffee) {
+	Coffee postCoffee(@RequestBody Coffee coffee) {
 		return coffeeRepository.save(coffee);
 	}
 /*	Coffee postCoffee(@RequestBody Coffee coffee) {
